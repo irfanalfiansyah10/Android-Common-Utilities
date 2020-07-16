@@ -14,6 +14,16 @@ fun Int.increaseByOne(maxCount: Int): Int{
     return if(x > maxCount) this else x
 }
 
+fun Int?.isMultipliedBy(multiplier: Int): Boolean{
+    return if(this == null) false
+    else this % multiplier == 0
+}
+
+fun Int?.gt(target: Int): Boolean{
+    return if(this == null) false
+    else this > target
+}
+
 //for permission
 fun Int.isGranted(): Boolean {
     return this == PackageManager.PERMISSION_GRANTED
