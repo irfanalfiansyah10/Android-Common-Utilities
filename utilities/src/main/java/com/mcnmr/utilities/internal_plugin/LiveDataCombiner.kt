@@ -59,3 +59,17 @@ fun <A, B, C, D, E, F, G> combineLiveData(one: LiveData<A>, two: LiveData<B>, th
     result.addSource(six) { result.value = block.invoke(one.value, two.value, three.value, four.value, five.value, six.value) }
     return result
 }
+
+fun <A, B, C, D, E, F, G, H> combineLiveData(one: LiveData<A>, two: LiveData<B>, three: LiveData<C>,
+                                             four: LiveData<D>, five: LiveData<E>, six: LiveData<F>,
+                                             seven: LiveData<G>, block: (A?, B?, C?, D?, E?, F?, G?) -> H): LiveData<H> {
+    val result = MediatorLiveData<H>()
+    result.addSource(one) { result.value = block.invoke(one.value, two.value, three.value, four.value, five.value, six.value, seven.value) }
+    result.addSource(two) { result.value = block.invoke(one.value, two.value, three.value, four.value, five.value, six.value, seven.value) }
+    result.addSource(three) { result.value = block.invoke(one.value, two.value, three.value, four.value, five.value, six.value, seven.value) }
+    result.addSource(four) { result.value = block.invoke(one.value, two.value, three.value, four.value, five.value, six.value, seven.value) }
+    result.addSource(five) { result.value = block.invoke(one.value, two.value, three.value, four.value, five.value, six.value, seven.value) }
+    result.addSource(six) { result.value = block.invoke(one.value, two.value, three.value, four.value, five.value, six.value, seven.value) }
+    result.addSource(seven) { result.value = block.invoke(one.value, two.value, three.value, four.value, five.value, six.value, seven.value) }
+    return result
+}
