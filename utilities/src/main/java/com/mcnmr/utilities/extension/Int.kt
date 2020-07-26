@@ -1,6 +1,8 @@
 package com.mcnmr.utilities.extension
 
+import android.content.Context
 import android.content.pm.PackageManager
+import kotlin.math.ceil
 
 fun Int.substractByOne(zeroSafe: Boolean): Int{
     val x = this - 1
@@ -31,4 +33,10 @@ fun Int.isGranted(): Boolean {
 
 fun Int.isDenied(): Boolean {
     return this == PackageManager.PERMISSION_DENIED
+}
+
+//display
+fun Int.toDp(context: Context): Int {
+    val density = context.resources.displayMetrics.density
+    return if (this.toFloat() == 0f) 0 else ceil((density * this.toFloat()).toDouble()).toInt()
 }

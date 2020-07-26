@@ -6,6 +6,17 @@ import androidx.core.animation.addListener
 import androidx.core.view.ViewCompat
 import kotlin.math.hypot
 
+fun View.visibleOrGoneIf(condition: Boolean){
+    visibility = if(condition) View.VISIBLE else View.GONE
+}
+fun View.visibleOrInvisibleIf(condition: Boolean){
+    visibility = if(condition) View.VISIBLE else View.INVISIBLE
+}
+
+fun View.gone(){ visibility = View.GONE }
+
+fun View.visible(){ visibility = View.VISIBLE }
+
 fun View.circularReveal(){
     if(ViewCompat.isAttachedToWindow(this)){
         val cx = width / 2
