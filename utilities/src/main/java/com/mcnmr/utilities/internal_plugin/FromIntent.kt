@@ -12,11 +12,11 @@ annotation class StringIntent(val value: String)
 
 @kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
 @Target(AnnotationTarget.FIELD)
-annotation class IntIntent(val value: String, val default: Int)
+annotation class IntIntent(val value: String, val default: Int = 0)
 
 @kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
 @Target(AnnotationTarget.FIELD)
-annotation class BooleanIntent(val value: String, val default: Boolean)
+annotation class BooleanIntent(val value: String, val default: Boolean = false)
 
 @kotlin.annotation.Retention(AnnotationRetention.RUNTIME)
 @Target(AnnotationTarget.FIELD)
