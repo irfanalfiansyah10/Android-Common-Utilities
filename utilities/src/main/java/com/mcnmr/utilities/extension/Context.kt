@@ -23,3 +23,7 @@ fun Context.getCompatDrawable(@DrawableRes resId: Int): Drawable? =
     ContextCompat.getDrawable(this, resId)
 
 fun Context.getCompatColor(@ColorRes resId: Int): Int = ContextCompat.getColor(this, resId)
+
+fun Context.launchUrl(url: String?){
+    startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+}
